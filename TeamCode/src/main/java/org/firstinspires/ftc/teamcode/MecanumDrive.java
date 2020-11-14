@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.matrices.GeneralMatrixF;
 import org.firstinspires.ftc.robotcore.external.matrices.MatrixF;
@@ -46,8 +47,13 @@ class MecanumDrive {
         motor3 = hwMap.get(DcMotor.class, "motor3");
         motor3.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        motor2.setDirection(DcMotor.Direction.REVERSE);
-        motor0.setDirection(DcMotor.Direction.REVERSE);
+
+        //Updated by gcf to test motor direction issues.
+        motor0.setDirection(DcMotorSimple.Direction.FORWARD);
+        motor1.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor2.setDirection(DcMotorSimple.Direction.FORWARD);
+        motor3.setDirection(DcMotorSimple.Direction.REVERSE);
+
     }
 
     private void setSpeeds(double flSpeed, double frSpeed, double blSpeed, double brSpeed) {

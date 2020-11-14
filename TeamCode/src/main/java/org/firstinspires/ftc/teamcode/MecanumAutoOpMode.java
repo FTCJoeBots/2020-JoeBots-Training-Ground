@@ -8,8 +8,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Util.RobotPosition;
 
-@TeleOp(name = "mechanum auto opmode", group = "ftc16072")
-@Disabled
+@TeleOp(name = "mechanum auto opmode", group = "Testing")
+//@Disabled
 public class MecanumAutoOpMode extends OpMode {
     private Robot robot = new Robot();
     int state = 0;
@@ -26,6 +26,7 @@ public class MecanumAutoOpMode extends OpMode {
     public void loop() {
         telemetry.addData("X", robot.nav.getEstimatedPosition().getX(DistanceUnit.INCH));
         telemetry.addData("Y", robot.nav.getEstimatedPosition().getY(DistanceUnit.INCH));
+        telemetry.addData("Current Heading: ", robot.nav.getHeading(AngleUnit.DEGREES));
         telemetry.addData("state", state);
         switch (state) {
             case 0:

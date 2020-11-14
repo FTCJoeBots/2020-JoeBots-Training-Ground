@@ -15,7 +15,7 @@ public class Navigation {
     static double ANGLE_TOLARANCE = AngleUnit.RADIANS.fromDegrees(1);
     static double KP_DISTANCE = 0.02;
     static double KP_ANGLE = 1;
-    private MecanumDrive mecanumDrive = new MecanumDrive();
+    public MecanumDrive mecanumDrive = new MecanumDrive();
     private BNO055IMU imu;
     private RobotPosition lastSetPosition;
     private double imuOffset = 0;
