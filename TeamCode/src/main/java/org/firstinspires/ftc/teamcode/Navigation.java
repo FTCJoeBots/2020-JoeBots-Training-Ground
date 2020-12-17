@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.navigation.*;
@@ -136,5 +137,17 @@ public class Navigation {
         double supposedHeading = angleUnit.toRadians(heading);
         double currentHeading = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.RADIANS).firstAngle;
         imuOffset = supposedHeading - currentHeading;
+    }
+
+    public void strafeForSeconds(double power, double strafeTime){
+
+        ElapsedTime strafeTimer = new ElapsedTime();
+
+        while(strafeTimer.seconds() <= strafeTime) {
+            MecanumDrive.driveMecanum(0,power,0);
+        }
+
+        MecanumDrive.driveMecanum(0,0,0);
+
     }
 }

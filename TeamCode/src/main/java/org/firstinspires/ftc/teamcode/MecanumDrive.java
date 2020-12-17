@@ -69,7 +69,7 @@ class MecanumDrive {
         motor3.setPower(brSpeed / largest);
     }
 
-    void driveMecanum(double forward, double strafe, double rotate) {
+    static void driveMecanum(double forward, double strafe, double rotate) {
         double frontLeftSpeed = forward + strafe + rotate;
         double frontRightSpeed = forward - strafe - rotate;
         double backLeftSpeed = forward - strafe + rotate;
